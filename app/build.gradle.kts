@@ -61,8 +61,7 @@ val coroutines by extra("1.6.4")
 val coroutinesLifecycle by extra("2.6.2")
 val composeNavigation by extra ("2.7.1")
 dependencies {
-    //kotlin version
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$1.9.10")
+
     //compose
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -78,7 +77,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.2")
-    ksp("com.google.dagger:hilt-compiler:$hiltVersion")
+    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
     implementation("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
     //Network Manager
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
