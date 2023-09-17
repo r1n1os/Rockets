@@ -1,10 +1,11 @@
 package com.example.rockets.data.local_database.entities.rocket
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.rockets.data.local_database.entities.height.HeightEntity
-
+@Dao
 interface RocketDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id ("kotlin-android")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.devtools.ksp")
@@ -43,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.4.3"
     }
     packaging {
         resources {
@@ -59,11 +60,10 @@ var retrofitVersion by extra("2.9.0")
 val roomVersion by extra ("2.5.2")
 val coroutines by extra("1.6.4")
 val coroutinesLifecycle by extra("2.6.2")
-val composeNavigation by extra ("2.7.1")
+val composeNavigation by extra ("2.7.2")
 dependencies {
-
     //compose
-    implementation("androidx.activity:activity-compose:1.7.2")
+    //implementation("androidx.activity:activity-compose:1.7.2")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -73,27 +73,29 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.5.1")
     implementation("androidx.navigation:navigation-compose:$composeNavigation")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
     //Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.2")
-    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
-    implementation("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
+    //implementation("androidx.navigation:navigation-runtime-ktx:2.7.2")
+
     //Network Manager
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
     //Local database Manager
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
+
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
+
     // Coroutine Lifecycle Scopes
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutinesLifecycle")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$coroutinesLifecycle")
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Test

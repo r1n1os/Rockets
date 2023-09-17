@@ -23,6 +23,7 @@ fun RocketsListScreen(
 ) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
+        Text(text = "View Loaded")
         if (state.error.isNotBlank()) {
             Text(
                 text = state.error,
