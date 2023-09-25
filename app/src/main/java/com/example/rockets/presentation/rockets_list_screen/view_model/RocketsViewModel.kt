@@ -1,32 +1,41 @@
 package com.example.rockets.presentation.rockets_list_screen.view_model
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.rockets.domain.use_case.get_rocket_list_use_case.GetRocketsListUseCase
+import com.example.rockets.domain.use_case.query_rockets_from_local_databse.QueryRocketsFromLocalDatabase
+import com.example.rockets.domain.use_case.save_rockets_into_local_database_use_case.SaveRocketsIntoLocalDatabaseUseCase
 import com.example.rockets.presentation.rockets_list_screen.RocketsListState
 import com.example.rockets.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
 class RocketsViewModel @Inject constructor(
-    private val getRocketsListUseCase: GetRocketsListUseCase
+    private val getRocketsListUseCase: GetRocketsListUseCase,
+    private val saveRocketsIntoLocalDatabaseUseCase: SaveRocketsIntoLocalDatabaseUseCase,
+    private val queryRocketsFromLocalDatabase: QueryRocketsFromLocalDatabase
+
 ) : ViewModel() {
 
     private val _rocketListState = mutableStateOf(RocketsListState())
     val state: State<RocketsListState> = _rocketListState
 
     init {
+        queryRocketsOffline()
         getRocketsList()
     }
 
-    private fun getRocketsList() {
-        getRocketsListUseCase().onEach {  result ->
+    private fun queryRocketsOffline() {
+        queryRocketsFromLocalDatabase().onEach {result ->
             when(result) {
                 is Resource.Success -> {
-                    _rocketListState.value= RocketsListState(rocketsList = result.data ?: emptyList())
+                   //_rocketListState.value= RocketsListState(rocketsList = result.data ?: emptyList())
                 }
                 is Resource.Error -> {
                     _rocketListState.value= RocketsListState(error = result.message ?:
@@ -36,6 +45,24 @@ class RocketsViewModel @Inject constructor(
                     _rocketListState.value= RocketsListState(isLoading = true)
                 }
             }
-        }
+        }.launchIn(viewModelScope)
+    }
+
+    private fun getRocketsList() {
+        getRocketsListUseCase().onEach {  result ->
+            when(result) {
+                is Resource.Success -> {
+                    _rocketListState.value= RocketsListState(rocketsList = result.data?.map { it.toRocketEntity() } ?: emptyList())
+                    saveRocketsIntoLocalDatabaseUseCase(result.data ?: emptyList())
+                }
+                is Resource.Error -> {
+                    _rocketListState.value= RocketsListState(error = result.message ?:
+                    "Unknown error occurred")
+                }
+                is Resource.Loading -> {
+                    _rocketListState.value= RocketsListState(isLoading = true)
+                }
+            }
+        }.launchIn(viewModelScope)
     }
 }

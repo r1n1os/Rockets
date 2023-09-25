@@ -1,4 +1,3 @@
-/*
 package com.example.rockets.data.local_database.entities.relations
 
 import androidx.room.Embedded
@@ -10,8 +9,8 @@ data class RocketAndHeight(
     @Embedded val rocketEntity: RocketEntity,
     @Relation(
         parentColumn = "id",
-        entityColumn = "rocketId"
+        entityColumn = "rocketEntityId"
     )
-    val height: HeightEntity
+    val height: HeightEntity?
 )
-*/
+

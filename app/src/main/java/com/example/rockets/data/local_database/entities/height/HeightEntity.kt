@@ -8,5 +8,6 @@ data class HeightEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val meters: Double,
-    val feet: Int,
+    val feet: Double,
+    val rocketEntityId: Int
 )

@@ -19,11 +19,15 @@ import com.example.rockets.data.local_database.type_converters.HeightConverter
 abstract class RocketsDatabase: RoomDatabase() {
     abstract val dao: RocketDao
 
-    companion object {
+
+    fun deleteAll() {
+        clearAllTables()
+    }
+/*    companion object {
         @Volatile
         private var instance: RocketsDatabase? = null
         private val LOCK = Any()
-        private const val DB_NAME = "DB_NAME"
+
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also {
@@ -44,5 +48,5 @@ abstract class RocketsDatabase: RoomDatabase() {
         fun deleteAll() {
             instance?.clearAllTables()
         }
-    }
+    }*/
 }

@@ -1,6 +1,7 @@
 package com.example.rockets.domain.use_case.get_rocket_list_use_case
 
 import com.example.rockets.data.local_database.entities.rocket.RocketEntity
+import com.example.rockets.data.remote.dto.RocketDto
 import com.example.rockets.domain.repository.RocketsRepository
 import com.example.rockets.utils.Resource
 import kotlinx.coroutines.flow.Flow
@@ -11,10 +12,10 @@ import javax.inject.Inject
 class GetRocketsListUseCase @Inject constructor(
     private val repository: RocketsRepository
 ) {
-    operator fun invoke(): Flow<Resource<List<RocketEntity>>> = flow {
+    operator fun invoke(): Flow<Resource<List<RocketDto>>> = flow {
         try {
             emit(Resource.Loading())
-            val rockets = repository.getRockets().map { it.toRocketEntity() }
+            val rockets = repository.getRockets()
             emit(Resource.Success(rockets))
         } catch (e: retrofit2.HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))

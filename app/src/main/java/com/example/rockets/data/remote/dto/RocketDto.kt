@@ -51,7 +51,6 @@ data class RocketDto(
             company = company,
             rocketName = rocketName,
             rocketType = rocketType,
-            heightEntity = HeightEntity(id = 0, meters = height.meters, feet = height.feet)
         )
     }
 }

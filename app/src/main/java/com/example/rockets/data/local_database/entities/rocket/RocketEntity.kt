@@ -1,5 +1,6 @@
 package com.example.rockets.data.local_database.entities.rocket
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
@@ -17,7 +18,7 @@ data class RocketEntity(
     val country: String,
     val company: String,
     val rocketName: String,
-    val rocketType: String,
-    @TypeConverters(HeightConverter::class)
-    val heightEntity: HeightEntity
+    val rocketType: String
+   /* @TypeConverters(HeightConverter::class)
+    val heightEntity: HeightEntity*/
 )
