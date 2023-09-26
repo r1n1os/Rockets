@@ -13,11 +13,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.rockets.presentation.ScreensRoutes
 import com.example.rockets.presentation.rockets_list_screen.components.RocketListItem
 import com.example.rockets.presentation.rockets_list_screen.view_model.RocketsViewModel
 
@@ -32,7 +34,7 @@ fun RocketsListScreen(
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.rocketsList) { rocketAndHeight ->
                 RocketListItem(rocketAndHeight = rocketAndHeight, onRocketClick = {
-
+                    navController.navigate(ScreensRoutes.RocketDetailsScreen.route + "/${rocketAndHeight.rocketEntity.id}")
                 })
             }
         }

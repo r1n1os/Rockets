@@ -27,4 +27,8 @@ class RocketsRepositoryImpl @Inject constructor(
     override suspend fun queryRocketListFromLocalDatabase(): List<RocketAndHeight> {
         return rocketsDatabase.dao.getListWithRockets()
     }
+
+    override suspend fun queryRocketDetailsFromLocalDatabaseById(rocketId: String): RocketAndHeight {
+        return rocketsDatabase.dao.getRocketById(rocketId)
+    }
 }

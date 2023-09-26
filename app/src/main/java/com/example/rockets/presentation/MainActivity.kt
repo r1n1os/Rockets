@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.rockets.presentation.rocket_details_screen.RocketDetailsScreen
 import com.example.rockets.presentation.rockets_list_screen.RocketsListScreen
 import com.example.rockets.presentation.ui.theme.RocketsTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +35,11 @@ class MainActivity : ComponentActivity() {
                             route = ScreensRoutes.RocketsListScreen.route
                         ) {
                             RocketsListScreen(navController)
+                        }
+                        composable(
+                            route = ScreensRoutes.RocketDetailsScreen.route + "/{rocket_id_key}"
+                        ) {
+                            RocketDetailsScreen()
                         }
                     }
                 }

@@ -61,7 +61,7 @@ var retrofitVersion by extra("2.9.0")
 val roomVersion by extra ("2.5.2")
 val coroutines by extra("1.6.4")
 val coroutinesLifecycle by extra("2.6.2")
-val composeNavigation by extra ("2.7.2")
+val composeNavigation by extra ("2.7.3")
 dependencies {
     //compose
     //implementation("androidx.activity:activity-compose:1.7.2")
@@ -98,6 +98,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$coroutinesLifecycle")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+
+    //Coil
+   // implementation("io.coil-kt:coil-compose:2.4.0")
 
     // Test
     testImplementation("junit:junit:4.13.2")

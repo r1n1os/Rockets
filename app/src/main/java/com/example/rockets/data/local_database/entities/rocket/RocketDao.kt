@@ -20,4 +20,8 @@ interface RocketDao {
     @Transaction
     @Query("SELECT * From rocket")
     suspend fun getListWithRockets() : List<RocketAndHeight>
+
+    @Transaction
+    @Query("SELECT * From rocket WHERE id=:rocketId")
+    suspend fun getRocketById(rocketId: String) : RocketAndHeight
 }

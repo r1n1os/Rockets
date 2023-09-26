@@ -52,8 +52,7 @@ class RocketsViewModel @Inject constructor(
         getRocketsListUseCase().onEach {  result ->
             when(result) {
                 is Resource.Success -> {
-                    //_rocketListState.value= RocketsListState(rocketsList = result.data?.map { it.toRocketEntity() } ?: emptyList())
-                    saveRocketsIntoLocalDatabaseUseCase(result.data ?: emptyList())
+                    saveRocketsIntoLocalDatabaseUseCase(result.data ?: emptyList()).launchIn(viewModelScope)
                     queryRocketsOffline()
                 }
                 is Resource.Error -> {

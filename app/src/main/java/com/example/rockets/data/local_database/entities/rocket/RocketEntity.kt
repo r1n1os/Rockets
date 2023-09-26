@@ -18,7 +18,8 @@ data class RocketEntity(
     val country: String,
     val company: String,
     val rocketName: String,
-    val rocketType: String
+    val rocketType: String,
+    val description: String
    /* @TypeConverters(HeightConverter::class)
     val heightEntity: HeightEntity*/
 )

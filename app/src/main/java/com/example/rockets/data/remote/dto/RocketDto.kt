@@ -51,6 +51,7 @@ data class RocketDto(
             company = company,
             rocketName = rocketName,
             rocketType = rocketType,
+            description = description
         )
     }
 }

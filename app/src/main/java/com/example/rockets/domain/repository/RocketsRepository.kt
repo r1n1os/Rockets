@@ -11,4 +11,6 @@ interface RocketsRepository {
     suspend fun saveRocketsIntoLocalDatabase(rocketsDtoList: List<RocketDto>)
 
     suspend fun queryRocketListFromLocalDatabase(): List<RocketAndHeight>
+
+    suspend fun queryRocketDetailsFromLocalDatabaseById(rocketId: String): RocketAndHeight
 }
