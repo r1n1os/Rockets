@@ -27,15 +27,12 @@ class RocketDetailsViewModel @Inject constructor(
     val state: State<RocketDetailsState> = _rocketDetailsState
 
     init {
-        Log.d("dfsafadsf", "rocketId: ")
-
         savedStateHandle.get<String>(ROCKET_ID_KEY)?.let { rocketId ->
             queryRocketsOffline(rocketId)
         }
     }
 
     private fun queryRocketsOffline(rocketId: String) {
-        Log.d("dfsafadsf", "rocketId: $rocketId")
         queryRocketDetailsFromLocalDatabaseById(rocketId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
