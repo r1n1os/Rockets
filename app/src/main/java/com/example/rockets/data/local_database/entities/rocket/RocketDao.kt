@@ -8,7 +8,7 @@ import androidx.room.Transaction
 import com.example.rockets.data.local_database.entities.height.HeightEntity
 import com.example.rockets.data.local_database.entities.payload_weights.PayloadWeightsEntity
 import com.example.rockets.data.local_database.entities.relations.RocketAndHeight
-import com.example.rockets.data.local_database.entities.relations.RocketsAndHeightWithPayloadWeightEntity
+import com.example.rockets.data.local_database.entities.relations.RocketWithPayloadWeights
 
 @Dao
 interface RocketDao {
@@ -30,6 +30,6 @@ interface RocketDao {
     suspend fun getRocketById(rocketId: String) : RocketAndHeight
 
     @Transaction
-    @Query("SELECT * FROM rocket")
-    fun getRocketAndWeightWithPayloadWeight(): RocketsAndHeightWithPayloadWeightEntity
+    @Query("SELECT * FROM rocket WHERE id=:rocketId")
+    fun getRocketWithPayloadWeight(rocketId: String): RocketWithPayloadWeights
 }

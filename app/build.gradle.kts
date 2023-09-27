@@ -59,7 +59,7 @@ var hiltVersion by extra("2.46.1")
 var hiltCompilerVersion by extra( "1.0.0")
 var retrofitVersion by extra("2.9.0")
 val roomVersion by extra ("2.5.2")
-val coroutines by extra("1.6.4")
+val coroutines by extra("1.7.1")
 val coroutinesLifecycle by extra("2.6.2")
 val composeNavigation by extra ("2.7.3")
 dependencies {
@@ -99,8 +99,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
-    //Coil
-   // implementation("io.coil-kt:coil-compose:2.4.0")
+    //Glide
+    implementation ("com.github.bumptech.glide:compose:1.0.0-alpha.5")
 
     // Test
     testImplementation("junit:junit:4.13.2")

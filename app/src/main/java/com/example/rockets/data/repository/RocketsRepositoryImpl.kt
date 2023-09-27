@@ -1,12 +1,9 @@
 package com.example.rockets.data.repository
 
 import com.example.rockets.data.local_database.RocketsDatabase
-import com.example.rockets.data.local_database.entities.height.HeightEntity
 import com.example.rockets.data.local_database.entities.relations.RocketAndHeight
-import com.example.rockets.data.local_database.entities.relations.RocketsAndHeightWithPayloadWeightEntity
-import com.example.rockets.data.local_database.entities.rocket.RocketEntity
+import com.example.rockets.data.local_database.entities.relations.RocketWithPayloadWeights
 import com.example.rockets.data.remote.RocketsApi
-import com.example.rockets.data.remote.dto.PayloadWeight
 import com.example.rockets.data.remote.dto.RocketDto
 import com.example.rockets.domain.repository.RocketsRepository
 import javax.inject.Inject
@@ -37,7 +34,7 @@ class RocketsRepositoryImpl @Inject constructor(
         return rocketsDatabase.dao.getRocketById(rocketId)
     }
 
-    override suspend fun queryRocketDetailsWithPayloadWeightFromLocalDatabaseById(rocketId: String): RocketsAndHeightWithPayloadWeightEntity {
-        return rocketsDatabase.dao.getRocketAndWeightWithPayloadWeight()
+    override suspend fun queryRocketDetailsWithPayloadWeightFromLocalDatabaseById(rocketId: String): RocketWithPayloadWeights {
+        return rocketsDatabase.dao.getRocketWithPayloadWeight(rocketId)
     }
 }

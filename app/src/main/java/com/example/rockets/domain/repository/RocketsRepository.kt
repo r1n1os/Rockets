@@ -1,8 +1,7 @@
 package com.example.rockets.domain.repository
 
 import com.example.rockets.data.local_database.entities.relations.RocketAndHeight
-import com.example.rockets.data.local_database.entities.relations.RocketsAndHeightWithPayloadWeightEntity
-import com.example.rockets.data.local_database.entities.rocket.RocketEntity
+import com.example.rockets.data.local_database.entities.relations.RocketWithPayloadWeights
 import com.example.rockets.data.remote.dto.RocketDto
 
 interface RocketsRepository {
@@ -15,5 +14,5 @@ interface RocketsRepository {
 
     suspend fun queryRocketDetailsFromLocalDatabaseById(rocketId: String): RocketAndHeight
 
-    suspend fun queryRocketDetailsWithPayloadWeightFromLocalDatabaseById(rocketId: String): RocketsAndHeightWithPayloadWeightEntity
+    suspend fun queryRocketDetailsWithPayloadWeightFromLocalDatabaseById(rocketId: String): RocketWithPayloadWeights
 }

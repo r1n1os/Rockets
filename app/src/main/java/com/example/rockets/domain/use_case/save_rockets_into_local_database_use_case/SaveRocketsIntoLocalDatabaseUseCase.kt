@@ -1,15 +1,14 @@
 package com.example.rockets.domain.use_case.save_rockets_into_local_database_use_case
 
-import android.content.res.Resources
-import android.util.Log
-import com.example.rockets.data.local_database.entities.rocket.RocketEntity
 import com.example.rockets.data.remote.dto.RocketDto
 import com.example.rockets.domain.repository.RocketsRepository
-import java.io.IOException
-import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 import com.example.rockets.utils.Resource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import java.io.IOException
+import javax.inject.Inject
 
 class SaveRocketsIntoLocalDatabaseUseCase @Inject constructor(
     private val repository: RocketsRepository
@@ -21,5 +20,5 @@ class SaveRocketsIntoLocalDatabaseUseCase @Inject constructor(
         } catch (e: IOException) {
             emit(Resource.Error(e.localizedMessage ?: "Something went wrong with saving data into local database"))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

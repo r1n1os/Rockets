@@ -13,8 +13,10 @@ import com.example.rockets.presentation.rockets_list_screen.RocketsListState
 import com.example.rockets.utils.Resource
 import com.example.rockets.utils.Urls.ROCKET_ID_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

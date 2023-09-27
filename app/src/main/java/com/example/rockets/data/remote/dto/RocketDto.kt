@@ -1,5 +1,6 @@
 package com.example.rockets.data.remote.dto
 
+import android.util.Log
 import com.example.rockets.data.local_database.entities.height.HeightEntity
 import com.example.rockets.data.local_database.entities.rocket.RocketEntity
 import com.google.gson.annotations.SerializedName
@@ -41,6 +42,8 @@ data class RocketDto(
     val wikipedia: String
 ) {
     fun toRocketEntity(): RocketEntity {
+        Log.d("sdasdasd",flickrImages.first() ?: "")
+
         return RocketEntity(
             id = id,
             isActive = active,
@@ -51,7 +54,8 @@ data class RocketDto(
             company = company,
             rocketName = rocketName,
             rocketType = rocketType,
-            description = description
+            description = description,
+            flickrImage = flickrImages.first() ?: ""
         )
     }
 }

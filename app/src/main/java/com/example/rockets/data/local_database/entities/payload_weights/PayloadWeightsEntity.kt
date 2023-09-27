@@ -11,5 +11,4 @@ data class PayloadWeightsEntity(
     val kg: Float,
     val lb: Float,
     val rocketEntityId: Int
-
 )

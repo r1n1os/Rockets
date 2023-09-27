@@ -13,15 +13,25 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.example.rockets.presentation.rocket_details_screen.view_model.RocketDetailsViewModel
 
+@OptIn(ExperimentalGlideComposeApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun RocketDetailsScreen(
     viewModel: RocketDetailsViewModel = hiltViewModel()
@@ -65,10 +75,17 @@ fun RocketDetailsScreen(
 
                         }
                     }
+                    Spacer(modifier = Modifier.height(21.dp))
+                    GlideImage(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(25.dp)),
+                        model = rocketAndHeight.rocketEntity.flickrImage,
+                        contentDescription = "",
+                        contentScale = ContentScale.Crop
 
-                    Spacer(modifier = Modifier.height(21.dp))/* AsyncImage(
-                         model = rocketAndHeight.rocketEntity.
-                     )*/
+                    )
+                    Spacer(modifier = Modifier.height(21.dp))
                     Text(
                         text = rocketAndHeight.rocketEntity.description,
                         style = MaterialTheme.typography.bodyMedium,
@@ -79,4 +96,5 @@ fun RocketDetailsScreen(
             }
         }
     }
+
 }

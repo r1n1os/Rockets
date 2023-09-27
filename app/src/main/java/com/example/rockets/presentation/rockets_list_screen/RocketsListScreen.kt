@@ -34,7 +34,7 @@ fun RocketsListScreen(
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.rocketsList) { rocketAndHeight ->
                 RocketListItem(rocketAndHeight = rocketAndHeight, onRocketClick = {
-                    navController.navigate(ScreensRoutes.RocketDetailsScreen.route + "/${rocketAndHeight.rocketEntity.id}")
+                    navController.navigate(ScreensRoutes.RocketDetailsScreen.route + "/${rocketAndHeight.rocketEntity.id.toString()}")
                 })
             }
         }
