@@ -1,6 +1,5 @@
 package com.example.rockets.presentation.rockets_list_screen.view_model
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -32,35 +31,44 @@ class RocketsViewModel @Inject constructor(
     }
 
     private fun queryRocketsOffline() {
-        queryRocketsFromLocalDatabase().onEach {result ->
-            when(result) {
+        queryRocketsFromLocalDatabase().onEach { result ->
+            when (result) {
                 is Resource.Success -> {
-                   _rocketListState.value= RocketsListState(rocketsList = result.data ?: emptyList())
+                    _rocketListState.value =
+                        RocketsListState(rocketsList = result.data ?: emptyList())
                 }
+
                 is Resource.Error -> {
-                    _rocketListState.value= RocketsListState(error = result.message ?:
-                    "Unknown error occurred")
+                    _rocketListState.value = RocketsListState(
+                        error = result.message ?: "Unknown error occurred"
+                    )
                 }
+
                 is Resource.Loading -> {
-                    _rocketListState.value= RocketsListState(isLoading = true)
+                    _rocketListState.value = RocketsListState(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)
     }
 
     private fun getRocketsList() {
-        getRocketsListUseCase().onEach {  result ->
-            when(result) {
+        getRocketsListUseCase().onEach { result ->
+            when (result) {
                 is Resource.Success -> {
-                    saveRocketsIntoLocalDatabaseUseCase(result.data ?: emptyList()).launchIn(viewModelScope)
+                    saveRocketsIntoLocalDatabaseUseCase(result.data ?: emptyList()).launchIn(
+                        viewModelScope
+                    )
                     queryRocketsOffline()
                 }
+
                 is Resource.Error -> {
-                    _rocketListState.value= RocketsListState(error = result.message ?:
-                    "Unknown error occurred")
+                    _rocketListState.value = RocketsListState(
+                        error = result.message ?: "Unknown error occurred"
+                    )
                 }
+
                 is Resource.Loading -> {
-                    _rocketListState.value= RocketsListState(isLoading = true)
+                    _rocketListState.value = RocketsListState(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)

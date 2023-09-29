@@ -32,7 +32,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRocketsRepository(rocketApi: RocketsApi, rocketsDatabase: RocketsDatabase) : RocketsRepository {
+    fun provideRocketsRepository(
+        rocketApi: RocketsApi,
+        rocketsDatabase: RocketsDatabase
+    ): RocketsRepository {
         return RocketsRepositoryImpl(rocketApi, rocketsDatabase)
     }
 

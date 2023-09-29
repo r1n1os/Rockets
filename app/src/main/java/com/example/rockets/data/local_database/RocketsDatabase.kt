@@ -14,8 +14,8 @@ import com.example.rockets.data.local_database.type_converters.HeightConverter
     entities = [RocketEntity::class, HeightEntity::class, PayloadWeightsEntity::class],
     version = 1
 )
-@TypeConverters(HeightConverter::class,)
-abstract class RocketsDatabase: RoomDatabase() {
+@TypeConverters(HeightConverter::class)
+abstract class RocketsDatabase : RoomDatabase() {
     abstract val dao: RocketDao
 
 

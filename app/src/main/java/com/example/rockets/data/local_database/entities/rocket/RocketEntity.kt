@@ -17,6 +17,4 @@ data class RocketEntity(
     val rocketType: String,
     val description: String,
     val flickrImage: String
-   /* @TypeConverters(HeightConverter::class)
-    val heightEntity: HeightEntity*/
 )

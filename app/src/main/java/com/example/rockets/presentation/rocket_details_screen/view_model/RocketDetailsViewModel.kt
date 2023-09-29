@@ -1,22 +1,17 @@
 package com.example.rockets.presentation.rocket_details_screen.view_model
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rockets.domain.use_case.query_rocket_details_from_local_database_by_id.QueryRocketDetailsFromLocalDatabaseById
-import com.example.rockets.domain.use_case.query_rockets_from_local_databse.QueryRocketsFromLocalDatabase
 import com.example.rockets.presentation.rocket_details_screen.RocketDetailsState
-import com.example.rockets.presentation.rockets_list_screen.RocketsListState
 import com.example.rockets.utils.Resource
 import com.example.rockets.utils.Urls.ROCKET_ID_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

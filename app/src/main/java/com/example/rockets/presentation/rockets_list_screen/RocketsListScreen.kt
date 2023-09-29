@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -29,8 +28,11 @@ fun RocketsListScreen(
     viewModel: RocketsViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
-    Box(modifier = Modifier.fillMaxSize()
-        .background(color = Color.DarkGray)) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.DarkGray)
+    ) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.rocketsList) { rocketAndHeight ->
                 RocketListItem(rocketAndHeight = rocketAndHeight, onRocketClick = {

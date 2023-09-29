@@ -21,7 +21,11 @@ class RocketsRepositoryImpl @Inject constructor(
         rocketsDtoList.map { it }.forEach { rocketDto ->
             rocketsDatabase.dao.insertHeight(rocketDto.height.toRocketEntity(rocketDto.id))
             rocketDto.payloadWeights.forEach { payloadWeight ->
-                rocketsDatabase.dao.insertPayloadWeight(payloadWeight.toPayloadWeightEntity(rocketDto.id))
+                rocketsDatabase.dao.insertPayloadWeight(
+                    payloadWeight.toPayloadWeightEntity(
+                        rocketDto.id
+                    )
+                )
             }
         }
     }

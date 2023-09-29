@@ -23,8 +23,7 @@ class MainActivity : ComponentActivity() {
             RocketsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = Color.DarkGray
+                    modifier = Modifier.fillMaxSize(), color = Color.DarkGray
                 ) {
                     val navController = rememberNavController()
                     NavHost(

@@ -18,16 +18,17 @@ interface RocketDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHeight(heightEntity: HeightEntity)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPayloadWeight(payloadWeightEntity: PayloadWeightsEntity)
 
     @Transaction
     @Query("SELECT * From rocket")
-    suspend fun getListWithRockets() : List<RocketAndHeight>
+    suspend fun getListWithRockets(): List<RocketAndHeight>
 
     @Transaction
     @Query("SELECT * From rocket WHERE id=:rocketId")
-    suspend fun getRocketById(rocketId: String) : RocketAndHeight
+    suspend fun getRocketById(rocketId: String): RocketAndHeight
 
     @Transaction
     @Query("SELECT * FROM rocket WHERE id=:rocketId")
