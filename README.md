@@ -7,6 +7,7 @@ Project components consist of:
   * Repository
   * Compose
   * DI (Dependency Injection)
+  * Kotlin Build Configuration 
 
 ## Project Versions:
   * Target SDK version: 34
