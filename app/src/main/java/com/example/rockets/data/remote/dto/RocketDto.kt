@@ -51,7 +51,7 @@ data class RocketDto(
             rocketName = rocketName,
             rocketType = rocketType,
             description = description,
-            flickrImage = flickrImages.first() ?: ""
+            flickrImage = flickrImages.first()
         )
     }
 }
