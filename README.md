@@ -18,6 +18,5 @@ Project components consist of:
 ## References:
  * EndPoint: https://docs.spacexdata.com/?version=latest#16c58b5e-44de-4183-b858-0fae51d242a5
 ## How it looks: 
-<img src="https://github.com/r1n1os/Rockets/assets/32699540/af18fd71-6eff-4b7c-a65f-33daa6f76d70" width="200">
-<img src="https://github.com/r1n1os/Rockets/assets/32699540/63c3d41d-2834-466d-8cb1-9f37de10bbff" width="200">
-
+<img src="https://github.com/r1n1os/Rockets/assets/32699540/4143d685-c7ec-4b1c-a280-2f23271ccc06" width="200">
+<img src="https://github.com/r1n1os/Rockets/assets/32699540/4c52ab7b-039d-4002-af57-9ec7c423ac29" width="200">
