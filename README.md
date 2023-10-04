@@ -7,6 +7,8 @@ Project components consist of:
   * Repository
   * Compose
   * DI (Dependency Injection)
+  * Retrofit
+  * Room Database
   * Kotlin Build Configuration 
 
 ## Project Versions:
