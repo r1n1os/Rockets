@@ -13,7 +13,7 @@ import com.example.rockets.data.local_database.type_converters.HeightConverter
 @Database(
     entities = [RocketEntity::class, HeightEntity::class, PayloadWeightsEntity::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 @TypeConverters(HeightConverter::class)
 abstract class RocketsDatabase : RoomDatabase() {
