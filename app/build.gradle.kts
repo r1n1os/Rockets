@@ -56,10 +56,10 @@ android {
 var hiltVersion by extra("2.48")
 var hiltCompilerVersion by extra("1.0.0")
 var retrofitVersion by extra("2.9.0")
-val roomVersion by extra("2.5.2")
+val roomVersion by extra("2.6.1")
 val coroutines by extra("1.7.3")
-val coroutinesLifecycle by extra("2.6.2")
-val composeNavigation by extra("2.7.4")
+val coroutinesLifecycle by extra("2.7.0")
+val composeNavigation by extra("2.7.6")
 
 dependencies {
     //compose
@@ -68,15 +68,15 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation("androidx.compose.runtime:runtime-livedata:1.5.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.0")
     implementation("androidx.navigation:navigation-compose:$composeNavigation")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     //Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    ksp("androidx.hilt:hilt-compiler:1.0.0")
+    ksp("androidx.hilt:hilt-compiler:1.1.0")
 
     //Network Manager
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
@@ -95,7 +95,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutinesLifecycle")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$coroutinesLifecycle")
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
     //Glide
     implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
