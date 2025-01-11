@@ -14,10 +14,10 @@ Rockets was developed to showcase various modern Android development toolkits su
 - App Architecture: [Repository](https://developer.android.com/topic/architecture/data-layer#architecture)
 
 ### Basic Configurations:
-  * Target SDK version: 34
+  * Target SDK version: 35
   * Minimum SDK version: 27
-  * Kotlin version: 1.9.22
-  * Gradle version: 8.2.1
+  * Kotlin version: 2.1.0
+  * Gradle version: 8.8.0
 
 ### Example: 
 <img src="https://github.com/r1n1os/Rockets/assets/32699540/4143d685-c7ec-4b1c-a280-2f23271ccc06" width="200">
